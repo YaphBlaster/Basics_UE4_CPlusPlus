@@ -10,10 +10,17 @@
 // Includes are the same as imports
 // It copies over the file to use
 // You want to limit includes to what you really need
+// Otherwise Foward Declaration is a good alternative that will not bloat the project 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Paths.h"
 #include "BUCharacter.generated.h"
+
+
+// Forward Declaration
+// Tells the compiler there's going to be something called X and not to worry about it
+// Only works with pointer variables
+class UMaterial;
 
 UCLASS()
 class BASICS_UE4_CPLUSPLUS_API ABUCharacter : public ACharacter
@@ -24,7 +31,9 @@ public:
 	// Sets default values for this character's properties
 	ABUCharacter();
 
-	FPaths::ProjectDir();
+	UMaterial* CharacterMaterial;
+
+	//FPaths::ProjectDir();
 
 protected:
 	// Called when the game starts or when spawned
