@@ -10,7 +10,7 @@
 // Includes are the same as imports
 // It copies over the file to use
 // You want to limit includes to what you really need
-// Otherwise Foward Declaration is a good alternative that will not bloat the project 
+// Otherwise Forward Declaration is a good alternative that will not bloat the project 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Paths.h"
