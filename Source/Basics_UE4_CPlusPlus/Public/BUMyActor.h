@@ -30,6 +30,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Health Values
 	float Health;
 	float MaxHealth;
 
