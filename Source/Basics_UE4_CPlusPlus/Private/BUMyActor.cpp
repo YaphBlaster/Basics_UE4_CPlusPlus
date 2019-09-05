@@ -4,7 +4,10 @@
 #include "BUMyActor.h"
 
 // Sets default values
+// The colon denotes the PreConstructor
 ABUMyActor::ABUMyActor()
+	: Health(0.0f)
+	, MaxHealth(100.0f)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
