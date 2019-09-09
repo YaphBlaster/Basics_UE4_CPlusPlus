@@ -106,6 +106,8 @@ public:
 	// Sets default values for this actor's properties
 	ABUMyVariables();
 
+protected:
+
 	bool MyBoolean;
 	bool MySetBoolean = true;
 
@@ -214,25 +216,31 @@ public:
 	// NOTE: No semicolons are needed for when you expose to blueprint using UPROPERTY, UFUNCTION, as the Unreal Header Tool will stitch the next line (property or function) to Unreal
 
 	// BlueprintReadWrite is similar to Getters and Setters
-	// EditAnywhere means you can change the property in the Details panel, either in the Defaults or the Instance
+	// EditAnywhere means you can change the property in the Details panel, either in the Blueprint Defaults or the Instance
 	// Category defines what section the property will appear under
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Tutorial")
+	 
+	// Player Health Remaining
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Tutorial", meta=(DisplayName="Player Health", ClampMin=0))
 	float CurrentHealth;
 
 	// BlueprintReadOnly is similar to a Getter
-	// VisibleAnywhere means the property can be viewed in the Details panel, either in the Defaults or the Instance
+	// VisibleAnywhere means the property can be viewed in the Details panel, either in the Blueprint Defaults OR the Instance
+	 
+	/** Current Kills */
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	int KillCounter;
 
-	// EditDefaultsOnly means that the property can only be changed in the Defaults and not the instance
+	// EditDefaultsOnly means that the property can only be changed in the Blueprint Defaults and NOT the instance
+
+	// Is Player Alive?
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	bool bIsAlive;
 
-	// VisibleInstanceOnly means that the property can only be seen in the GameEditor as a Game Instance
+	// VisibleInstanceOnly means that the property can only be seen in the GameEditor as a Game Instance and NOT the Blueprints Defaults
+
+	// Currently Equipped Weapon - May be Null!
 	UPROPERTY(BlueprintReadOnly, VisibleInstanceOnly, Category = "Weapon")
 	AActor* EquippedWeapon;
-
-
 
 protected:
 	// Called when the game starts or when spawned
