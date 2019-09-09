@@ -204,6 +204,35 @@ public:
 	// Must be initialized outside of a class
 	static int MyStaticInteger;
 
+	// ************************* Blueprint Exposed Variables *************************
+	
+	// In order to view and use these in the Unreal Editor, they must be exposed to Unreal Header Tool (UPROPERTY, UFUNCTION)
+	// Property Specifiers (VisibleAnywhere, BlueprintReadOnly, etc) can be found here:
+	// https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/Reference/Properties/Specifiers/index.html
+	// Metadata Specifiers can be found here (Navigate to the Property Metadata Specifiers):
+	// https://docs.unrealengine.com/en-US/Programming/UnrealArchitecture/Reference/Metadata/index.html
+	// NOTE: No semicolons are needed for when you expose to blueprint using UPROPERTY, UFUNCTION, as the Unreal Header Tool will stitch the next line (property or function) to Unreal
+
+	// BlueprintReadWrite is similar to Getters and Setters
+	// EditAnywhere means you can change the property in the Details panel, either in the Defaults or the Instance
+	// Category defines what section the property will appear under
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Tutorial")
+	float CurrentHealth;
+
+	// BlueprintReadOnly is similar to a Getter
+	// VisibleAnywhere means the property can be viewed in the Details panel, either in the Defaults or the Instance
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
+	int KillCounter;
+
+	// EditDefaultsOnly means that the property can only be changed in the Defaults and not the instance
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+	bool bIsAlive;
+
+	// VisibleInstanceOnly means that the property can only be seen in the GameEditor as a Game Instance
+	UPROPERTY(BlueprintReadOnly, VisibleInstanceOnly, Category = "Weapon")
+	AActor* EquippedWeapon;
+
+
 
 protected:
 	// Called when the game starts or when spawned
