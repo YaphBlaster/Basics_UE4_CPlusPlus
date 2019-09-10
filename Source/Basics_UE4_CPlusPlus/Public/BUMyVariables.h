@@ -165,6 +165,7 @@ protected:
 	FText MySetText1 = NSLOCTEXT("MyNameSpace", "MyUniqueKey", "Hellow World");
 	FText MySetText2 = LOCTEXT("MyUniqueKey2", "Hellow World");
 
+	// Does not support Localization
 	FName MyName;
 	FName MySetName = TEXT("Hello World");
 	FName MySetName2 = NAME_None;
